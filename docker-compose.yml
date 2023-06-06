@@ -27,3 +27,12 @@ services:
       - MYSQL_DATABASE=springproject
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=password
+    volumes:
+      - ./JtProject/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+
+  adminer:
+    image: adminer:latest
+    depends_on:
+      - db
+    ports:
+      - 8081:8080
