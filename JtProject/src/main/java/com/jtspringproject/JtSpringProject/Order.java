@@ -1,4 +1,4 @@
-package com.jtspringproject.JtSpringProject.controller;
+package com.jtspringproject.JtSpringProject;
 
 import java.util.Date;
 
