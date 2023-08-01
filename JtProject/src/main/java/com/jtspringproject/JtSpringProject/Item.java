@@ -1,24 +1,32 @@
 package com.jtspringproject.JtSpringProject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Item {
 
     private String itemId;
     private String name;
-    private int price;
+    private float price;
     private String provider;
-    private String[] recommendedItems;
+    private List<Item> recommendedItems = new ArrayList<>();
 
     public Item() {
         super();
     }
 
-    public Item(String itemId, String name, int price, String provider, String[] recommendedItems) {
+    public Item(String itemId, String name, int price, String provider, List<Item> recommendedItems) {
         super();
         this.itemId = itemId;
         this.name = name;
         this.price = price;
         this.provider = provider;
         this.recommendedItems = recommendedItems;
+    }
+
+    public Item(int price){
+        super();
+        this.price=price;
     }
 
     public String getItemId() {
@@ -37,7 +45,7 @@ public class Item {
         this.name = name;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
@@ -53,11 +61,11 @@ public class Item {
         this.provider=provider;
     }
 
-    public String[] getRecommendedItems() {
+    public List<Item> getRecommendedItems() {
         return recommendedItems;
     }
 
-    public void setRecommendedItems(String[] recommendedItems) {
+    public void setRecommendedItems(List<Item> recommendedItems) {
         this.recommendedItems=recommendedItems;
     }
 
