@@ -1,4 +1,4 @@
-package com.jtspringproject.JtSpringProject;
+package com.jtspringproject.JtSpringProject.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,7 @@
 package com.jtspringproject.JtSpringProject;
 
+import com.jtspringproject.JtSpringProject.Entity.Cart;
+import com.jtspringproject.JtSpringProject.Entity.Item;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
