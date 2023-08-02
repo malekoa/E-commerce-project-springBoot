@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS Customer (
     Email VARCHAR(100),
     CardID VARCHAR(50),
     NumberOfCoupons INT,
-    CouponAccumulator DECIMAL(10, 2)
+    CouponAccumulator DECIMAL(10, 2),
+    Address VARCHAR(255)
 );
 
 -- Create Guest table

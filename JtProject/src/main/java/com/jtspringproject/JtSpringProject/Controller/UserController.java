@@ -11,22 +11,4 @@ public class UserController{
 	@Autowired
 	private UserService service;
 
-	@PostMapping("/register")
-	public String newUserRegister(@RequestParam("username") String username,@RequestParam("password") String password)
-	{// TODO - hash password before saving
-		try
-		{
-			User newUser = new User();
-			newUser.setUsername(username);
-			newUser.setPassword(password);
-			service.createUser(newUser);
-			return "redirect:/home";
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception:"+e);
-			return "redirect:/error";
-		}
-	}
-
 }

@@ -32,16 +32,20 @@ public class CustomerController{
 //        return service.addToCart(customerID, itemID, quantity);
 //    }
 
-    @PostMapping("/register/customer")
-    public String newCustomerRegister(@RequestParam("username") String username,@RequestParam("password") String password)
+    @PostMapping("/register")
+    public String newCustomerRegister(@RequestParam("username") String username,@RequestParam("password") String password,
+                                      @RequestParam("email") String email, @RequestParam("address") String address)
     {// TODO - hash password before saving
         try
         {
             Customer customer = new Customer();
             customer.setUsername(username);
             customer.setPassword(password);
+            customer.setAddress(address);
+            customer.setEmail(email);
             service.createCustomer(customer);
-            return "redirect:/home";
+            System.out.println("Created customer");
+            return "userlogin";
         }
         catch(Exception e)
         {
