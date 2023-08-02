@@ -11,17 +11,20 @@ public class Item {
     private String provider;
     private List<Item> recommendedItems = new ArrayList<>();
 
+    private int quantity;
+
     public Item() {
         super();
     }
 
-    public Item(String itemId, String name, int price, String provider, List<Item> recommendedItems) {
+    public Item(String itemId, String name, int price, String provider, List<Item> recommendedItems, int quantity) {
         super();
         this.itemId = itemId;
         this.name = name;
         this.price = price;
         this.provider = provider;
         this.recommendedItems = recommendedItems;
+        this.quantity = quantity;
     }
 
     public Item(int price){
@@ -69,9 +72,30 @@ public class Item {
         this.recommendedItems=recommendedItems;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity=quantity;
+    }
+
+    public float getTotalPrice() {
+        return price * quantity;
+    }
+
+    public void addRecommendedItem(Item item) {
+        recommendedItems.add(item);
+    }
+
+    public void removeRecommendedItem(Item item) {
+        recommendedItems.remove(item);
+    }
+
+
     @Override
     public String toString() {
-        return "Item [itemId=" + itemId + ", name=" + name + ", price=" + price + ", provider=" + provider + ", recommendedItems=" + recommendedItems + "]";
+        return "Item [itemId=" + itemId + ", name=" + name + ", price per item=" + price + ", provider=" + provider + ", recommendedItems=" + recommendedItems + ", quantity=" + quantity + ", total price=" + getTotalPrice() + "]";
     }
 
 

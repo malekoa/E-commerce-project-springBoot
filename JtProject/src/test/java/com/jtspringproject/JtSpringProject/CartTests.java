@@ -7,9 +7,9 @@ import java.util.List;
 
 public class CartTests {
 
-    Item item = new Item("1", "1", 3, "4", null);
-    Item item2 = new Item("2", "2", 2, "4", null);
-    Item item3 = new Item("3", "3", 1, "4", null);
+    Item item = new Item("1", "1", 3, "4", null, 1);
+    Item item2 = new Item("2", "2", 2, "4", null, 1);
+    Item item3 = new Item("3", "3", 1, "4", null, 1);
     List<Item> itemList = new ArrayList<>();
     {
         itemList.add(item);
@@ -30,7 +30,7 @@ public class CartTests {
 
     @Test
     void containedItemsManipulationTest(){
-        Item item4 = new Item("4", "4", 4, "4", null);
+        Item item4 = new Item("4", "4", 4, "4", null, 1);
         cart.addItem(item4);
         assert(cart.getContainedItems().size() == 4);
         assert(cart.getContainedItems().get(3).getName().equals("4"));
