@@ -11,7 +11,7 @@ public class User{
     private Integer id;
     private String username;
     private String password;
-    private String type;
+    protected String type;
 
     // Constructors
     public User(){
