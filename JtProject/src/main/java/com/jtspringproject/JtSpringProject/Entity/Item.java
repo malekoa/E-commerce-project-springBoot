@@ -1,107 +1,48 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Item")
 public class Item {
 
-    private String itemId;
-    private String name;
-    private float price;
-    private String provider;
-    private List<Item> recommendedItems = new ArrayList<>();
-
-    private int quantity;
+    @Id
+    @GeneratedValue
+    private Integer itemId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pId")
+    private Product product;
 
     public Item() {
         super();
     }
 
-    public Item(String itemId, String name, int price, String provider, List<Item> recommendedItems, int quantity) {
+    public Item(Integer itemId, Product product) {
         super();
         this.itemId = itemId;
-        this.name = name;
-        this.price = price;
-        this.provider = provider;
-        this.recommendedItems = recommendedItems;
-        this.quantity = quantity;
+        this.product = product;
     }
 
-    public Item(int price){
-        super();
-        this.price=price;
-    }
-
-    public String getItemId() {
+    public Integer getItemId() {
         return itemId;
     }
 
-    public void setItemId(String itemId) {
+    public void setItemId(Integer itemId) {
         this.itemId = itemId;
     }
 
-    public String getName() {
-        return name;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProduct(Product product) {
+        this.product = product;
     }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price=price;
-    }
-
-    public String getProvider() {
-        return provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider=provider;
-    }
-
-    public List<Item> getRecommendedItems() {
-        return recommendedItems;
-    }
-
-    public void setRecommendedItems(List<Item> recommendedItems) {
-        this.recommendedItems=recommendedItems;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity=quantity;
-    }
-
-    public float getTotalPrice() {
-        return price * quantity;
-    }
-
-    public void addRecommendedItem(Item item) {
-        recommendedItems.add(item);
-    }
-
-    public void removeRecommendedItem(Item item) {
-        recommendedItems.remove(item);
-    }
-
 
     @Override
     public String toString() {
         return "Item{" +
-                "name='" + name + '\'' +
                 ", itemId='" + itemId + '\'' +
-                ", price=" + price +
-                ", provider='" + provider + '\'' +
-                ", recommendedItems=" + recommendedItems +
-                ", quantity=" + quantity +
                 '}';
     }
 

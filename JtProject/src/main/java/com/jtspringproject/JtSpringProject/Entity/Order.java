@@ -1,13 +1,18 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
-import java.util.Date;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Order")
 public class Order {
-    private String orderId;
 
-    private String cartId;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer orderId;
 
-    private String userId;
+    private Integer cartId;
+
+    private Integer userId;
 
     private String totalCost;
 
@@ -17,7 +22,7 @@ public class Order {
         super();
     }
 
-    public Order(String orderId, String cartId, String userId, String totalCost, String orderDate) {
+    public Order(Integer orderId, Integer cartId, Integer userId, String totalCost, String orderDate) {
         super();
         this.orderId = orderId;
         this.cartId = cartId;
@@ -26,27 +31,27 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId=orderId;
     }
 
-    public String getCartId() {
+    public Integer getCartId() {
         return cartId;
     }
 
-    public void setCartId(String cartId) {
+    public void setCartId(Integer cartId) {
         this.cartId=cartId;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId=userId;
     }
 
