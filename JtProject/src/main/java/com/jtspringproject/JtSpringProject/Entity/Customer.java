@@ -3,6 +3,7 @@ package com.jtspringproject.JtSpringProject.Entity;
 import javax.persistence.*;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 @Table(name = "Customer")
 public class Customer extends User{
     private String name;
@@ -10,15 +11,17 @@ public class Customer extends User{
     private String cartID;
     private int numCoupons;
     private double couponAccumulator;
+    private String address;
 
     // Constructors
-    public Customer(int id, String username, String password, String name, String email, String cartID, int numCoupons, int couponAccumulator) {
+    public Customer(int id, String username, String password, String name, String email, String cartID, int numCoupons, int couponAccumulator, String address) {
         super(id, username, password, "Customer");
         this.name = name;
         this.email = email;
         this.cartID = cartID;
         this.numCoupons=numCoupons;
         this.couponAccumulator=couponAccumulator;
+        this.address = address;
     }
 
     public Customer() {
@@ -46,7 +49,19 @@ public class Customer extends User{
         return name;
     }
 
+
+    public String getAddress() {
+        return address;
+    }
+
     // Mutator Methods
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    // Mutator Methods
+
     public void setCouponAccumulator(double couponAccumulator) {
         this.couponAccumulator = couponAccumulator;
     }
@@ -80,5 +95,4 @@ public class Customer extends User{
                 ", couponAccumulator=" + couponAccumulator +
                 '}';
     }
-
 }

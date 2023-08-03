@@ -3,6 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "User")
 public class User{
     // User attributes
