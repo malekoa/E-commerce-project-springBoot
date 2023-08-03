@@ -45,4 +45,40 @@ public class Customer extends User{
     public String getName() {
         return name;
     }
+
+    // Mutator Methods
+    public void setCouponAccumulator(double couponAccumulator) {
+        this.couponAccumulator = couponAccumulator;
+    }
+
+    public void setNumCoupons(int numCoupons) {
+        this.numCoupons = numCoupons;
+    }
+
+    public void setCartID(String cartID) {
+        this.cartID = cartID;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return "Customer{" +
+                "id=" + super.getId() +
+                ", username='" + super.getUsername() + '\'' +
+                ", password='" + super.getPassword() + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", cartID='" + cartID + '\'' +
+                ", numCoupons=" + numCoupons +
+                ", couponAccumulator=" + couponAccumulator +
+                '}';
+    }
+
 }

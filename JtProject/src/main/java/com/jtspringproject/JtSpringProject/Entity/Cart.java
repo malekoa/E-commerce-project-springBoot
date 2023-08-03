@@ -52,6 +52,11 @@ public class Cart {
         return total;
     }
 
+    public void clearCart(){
+        containedItems.clear();
+        System.out.println("Clear Cart");
+    }
+
     public void checkout() {
         getTotalPrice();
         System.out.println("Checkout");

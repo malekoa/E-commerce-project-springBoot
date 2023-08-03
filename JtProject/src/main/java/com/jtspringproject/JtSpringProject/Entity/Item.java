@@ -95,8 +95,14 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [itemId=" + itemId + ", name=" + name + ", price per item=" + price + ", provider=" + provider + ", recommendedItems=" + recommendedItems + ", quantity=" + quantity + ", total price=" + getTotalPrice() + "]";
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", itemId='" + itemId + '\'' +
+                ", price=" + price +
+                ", provider='" + provider + '\'' +
+                ", recommendedItems=" + recommendedItems +
+                ", quantity=" + quantity +
+                '}';
     }
-
 
 }
