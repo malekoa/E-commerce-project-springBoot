@@ -1,5 +1,6 @@
 package com.jtspringproject.JtSpringProject.Controller;
 
+import com.jtspringproject.JtSpringProject.Entity.Customer;
 import com.jtspringproject.JtSpringProject.Entity.User;
 import com.jtspringproject.JtSpringProject.Service.UserService;
 import org.springframework.stereotype.Controller;
@@ -28,5 +29,14 @@ public class UserController{
 			return "redirect:/error";
 		}
 	}
-
+	
+    public Customer transitionGuestToCustomer(Guest guest, String name, String email, String password, String address) {
+        // Create a new Customer
+        Customer customer = new Customer(/* parameters to create a new Customer */);
+        
+        // Transfer the cart from the Guest to the Customer
+        customer.setCart(guest.getCart());
+        
+        return customer;
+    }
 }

@@ -10,7 +10,8 @@ public class Customer extends User{
     private String cartID;
     private int numCoupons;
     private double couponAccumulator;
-
+    private Cart cart;  // Added Cart attribute
+    
     // Constructors
     public Customer(int id, String username, String password, String name, String email, String cartID, int numCoupons, int couponAccumulator) {
         super(id, username, password, "Customer");
@@ -65,6 +66,10 @@ public class Customer extends User{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCart(Cart cart) {  // Added setCart method
+        this.cart = cart;
     }
 
     @Override
