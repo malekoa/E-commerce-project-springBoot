@@ -49,22 +49,23 @@ public class Cart {
         System.out.println("Remove Item: " + item.getItemId());
     }
 
-//    public float getTotalPrice() {
-//        // Query to get the price of every item in containedItems given pId
-//
-//        // float total  = containedItems.stream().map(item -> item.getPrice()).reduce(0.0f, (a, b) -> a + b);
-//
-//        System.out.println("Total Price: " + total);
-//        return total;
-//    }
+    public float getTotalPrice() {
+
+        float total = 0;
+        for (Item item : containedItems) {
+            total += item.getProduct().getpPrice();
+        }
+        System.out.println("Total Price: " + total);
+        return total;
+    }
 
     public void clearCart(){
         containedItems.clear();
         System.out.println("Clear Cart");
     }
 
-//    public void checkout() {
-//        getTotalPrice();
-//        System.out.println("Checkout");
-//    }
+    public void checkout() {
+        getTotalPrice();
+        System.out.println("Checkout");
+    }
 }

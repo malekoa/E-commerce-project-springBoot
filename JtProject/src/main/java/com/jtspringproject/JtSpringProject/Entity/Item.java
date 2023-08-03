@@ -1,9 +1,6 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Table(name = "Item")
@@ -12,19 +9,19 @@ public class Item {
     @Id
     @GeneratedValue
     private Integer itemId;
-    private Integer pId;
-    private int quantity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pId")
+    private Product product;
 
     public Item() {
         super();
     }
 
-    public Item(Integer itemId, int quantity) {
+    public Item(Integer itemId, Product product) {
         super();
         this.itemId = itemId;
-        this.quantity = quantity;
+        this.product = product;
     }
-
 
     public Integer getItemId() {
         return itemId;
@@ -34,27 +31,18 @@ public class Item {
         this.itemId = itemId;
     }
 
-    public Integer getpId() {
-        return pId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setpId(Integer pId){
-        this.pId =  pId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity=quantity;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
     public String toString() {
         return "Item{" +
                 ", itemId='" + itemId + '\'' +
-                ", quantity=" + quantity +
                 '}';
     }
 
