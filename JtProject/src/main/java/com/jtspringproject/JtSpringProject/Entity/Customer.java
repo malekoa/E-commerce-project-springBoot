@@ -3,6 +3,7 @@ package com.jtspringproject.JtSpringProject.Entity;
 import javax.persistence.*;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 @Table(name = "Customer")
 public class Customer extends User{
     private String name;
