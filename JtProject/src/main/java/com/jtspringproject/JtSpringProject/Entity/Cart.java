@@ -41,29 +41,30 @@ public class Cart {
 
     public void addItem(Item item) {
         containedItems.add(item);
-        System.out.println("Add Item: " + item.getName());
+        System.out.println("Add Item: " + item.getItemId());
     }
 
     public void removeItem(Item item) {
         containedItems.remove(item);
-        System.out.println("Remove Item: " + item.getName());
+        System.out.println("Remove Item: " + item.getItemId());
     }
 
-    public float getTotalPrice() {
-
-        float total  = containedItems.stream().map(item -> item.getPrice()).reduce(0.0f, (a, b) -> a + b);
-
-        System.out.println("Total Price: " + total);
-        return total;
-    }
+//    public float getTotalPrice() {
+//        // Query to get the price of every item in containedItems given pId
+//
+//        // float total  = containedItems.stream().map(item -> item.getPrice()).reduce(0.0f, (a, b) -> a + b);
+//
+//        System.out.println("Total Price: " + total);
+//        return total;
+//    }
 
     public void clearCart(){
         containedItems.clear();
         System.out.println("Clear Cart");
     }
 
-    public void checkout() {
-        getTotalPrice();
-        System.out.println("Checkout");
-    }
+//    public void checkout() {
+//        getTotalPrice();
+//        System.out.println("Checkout");
+//    }
 }

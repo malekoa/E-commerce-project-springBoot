@@ -8,64 +8,71 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CartTests {
 
     private Cart cart;
-    private Item item;
+    private Item item1;
     private Item item2;
-    private Item item3;
 
     @BeforeEach
-    void setUp() {
-        item = new Item(1, "1", 3, "4", null, 1);
-        item2 = new Item(2, "2", 2, "4", null, 1);
-        item3 = new Item(3, "3", 1, "4", null, 1);
-        List<Item> itemList = new ArrayList<>();
-        itemList.add(item);
-        itemList.add(item2);
-        itemList.add(item3);
-        cart = new Cart(1, itemList);
+    public void setUp() {
+        cart = new Cart(1, new ArrayList<>());
+        item1 = new Item(1, 3);
+        item2 = new Item(2, 5);
     }
 
     @Test
-    void testCartConstructor() {
+    void testGetCartId() {
         assertEquals(1, cart.getCartId());
-        assertNotNull(cart.getContainedItems());
-        assertEquals(3, cart.getContainedItems().size());
-        assertEquals("1", cart.getContainedItems().get(0).getName());
-        assertEquals("2", cart.getContainedItems().get(1).getName());
-        assertEquals("3", cart.getContainedItems().get(2).getName());
+    }
+
+    @Test
+    void testGetContainedItems() {
+        List<Item> expected = new ArrayList<>();
+        assertEquals(expected, cart.getContainedItems());
+    }
+
+    @Test
+    void testSetCartId() {
+        cart.setCartId(2);
+        assertEquals(2, cart.getCartId());
+    }
+
+    @Test
+    void testSetContainedItems() {
+        List<Item> itemList = new ArrayList<>();
+        itemList.add(item1);
+        itemList.add(item2);
+        cart.setContainedItems(itemList);
+        assertEquals(itemList, cart.getContainedItems());
     }
 
     @Test
     void testAddItem() {
-        Item item4 = new Item(4, "4", 4, "4", null, 1);
-        cart.addItem(item4);
-        assertEquals(4, cart.getContainedItems().size());
-        assertEquals("4", cart.getContainedItems().get(3).getName());
+        cart.addItem(item1);
+        List<Item> expected = new ArrayList<>();
+        expected.add(item1);
+        assertEquals(expected, cart.getContainedItems());
     }
 
     @Test
     void testRemoveItem() {
-        Item item4 = new Item(4, "4", 4, "4", null, 1);
-        cart.addItem(item4);
-        cart.removeItem(item4);
-        assertEquals(3, cart.getContainedItems().size());
-        assertEquals("1", cart.getContainedItems().get(0).getName());
-        assertEquals("2", cart.getContainedItems().get(1).getName());
-        assertEquals("3", cart.getContainedItems().get(2).getName());
-    }
-
-    @Test
-    void testGetTotalPrice() {
-        assertEquals(6, cart.getTotalPrice());
+        cart.addItem(item1);
+        cart.addItem(item2);
+        cart.removeItem(item1);
+        List<Item> expected = new ArrayList<>();
+        expected.add(item2);
+        assertEquals(expected, cart.getContainedItems());
     }
 
     @Test
     void testClearCart() {
+        cart.addItem(item1);
+        cart.addItem(item2);
         cart.clearCart();
-        assertEquals(0, cart.getContainedItems().size());
+        List<Item> expected = new ArrayList<>();
+        assertEquals(expected, cart.getContainedItems());
     }
 }
