@@ -1,28 +1,33 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "Cart")
 public class Cart {
+    @Id
+    @GeneratedValue
+    private Integer cartId;
 
-    private String cartId;
-
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Item> containedItems = new ArrayList<>();
     public Cart() {
         super();
     }
 
-    public Cart(String cartId, List<Item> containedItems) {
+    public Cart(Integer cartId, List<Item> containedItems) {
         super();
         this.cartId = cartId;
         this.containedItems = containedItems;
     }
 
-    public String getCartId() {
+    public Integer getCartId() {
         return cartId;
     }
 
-    public void setCartId(String cartId) {
+    public void setCartId(Integer cartId) {
         this.cartId = cartId;
     }
 
@@ -36,18 +41,20 @@ public class Cart {
 
     public void addItem(Item item) {
         containedItems.add(item);
-        System.out.println("Add Item: " + item.getName());
+        System.out.println("Add Item: " + item.getItemId());
     }
 
     public void removeItem(Item item) {
         containedItems.remove(item);
-        System.out.println("Remove Item: " + item.getName());
+        System.out.println("Remove Item: " + item.getItemId());
     }
 
     public float getTotalPrice() {
 
-        float total  = containedItems.stream().map(item -> item.getPrice()).reduce(0.0f, (a, b) -> a + b);
-
+        float total = 0;
+        for (Item item : containedItems) {
+            total += item.getProduct().getpPrice();
+        }
         System.out.println("Total Price: " + total);
         return total;
     }

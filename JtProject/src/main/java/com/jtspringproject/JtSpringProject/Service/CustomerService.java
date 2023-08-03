@@ -20,8 +20,8 @@ public class CustomerService {
     public Cart getCartById(Integer id){
         return repository.getCartById(id);
     }
-
-    public String addToCart(int customerID, int itemID, int quantity) {
-        return repository.addToCart(customerID, itemID, quantity);
-    }
+//
+//    public String addToCart(int customerID, int itemID, int quantity) {
+//        return repository.addToCart(customerID, itemID, quantity);
+//    }
 }

@@ -5,28 +5,28 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OrderTests {
+public class OrderTest {
 
     Order order;
 
     @BeforeEach
     void setUp() {
-        order = new Order("1", "1", "1", "1", null);
+        order = new Order(1, 1, 1, "1", null);
     }
 
     @Test
     void testGetOrderId() {
-        assertEquals("1", order.getOrderId());
+        assertEquals(1, order.getOrderId());
     }
 
     @Test
     void testGetCartId() {
-        assertEquals("1", order.getCartId());
+        assertEquals(1, order.getCartId());
     }
 
     @Test
     void testGetUserId() {
-        assertEquals("1", order.getUserId());
+        assertEquals(1, order.getUserId());
     }
 
     @Test
@@ -41,20 +41,20 @@ public class OrderTests {
 
     @Test
     void testSetOrderId() {
-        order.setOrderId("2");
-        assertEquals("2", order.getOrderId());
+        order.setOrderId(2);
+        assertEquals(2, order.getOrderId());
     }
 
     @Test
     void testSetCartId() {
-        order.setCartId("2");
-        assertEquals("2", order.getCartId());
+        order.setCartId(2);
+        assertEquals(2, order.getCartId());
     }
 
     @Test
     void testSetUserId() {
-        order.setUserId("2");
-        assertEquals("2", order.getUserId());
+        order.setUserId(2);
+        assertEquals(2, order.getUserId());
     }
 
     @Test
