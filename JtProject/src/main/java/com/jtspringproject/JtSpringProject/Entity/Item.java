@@ -1,15 +1,23 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "Item")
 public class Item {
 
-    private String itemId;
+    @Id
+    @GeneratedValue
+    private Integer itemId;
     private String name;
     private float price;
     private String provider;
-    private List<Item> recommendedItems = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Item> recommendedItems = new ArrayList<Item>();
 
     private int quantity;
 
@@ -17,7 +25,7 @@ public class Item {
         super();
     }
 
-    public Item(String itemId, String name, int price, String provider, List<Item> recommendedItems, int quantity) {
+    public Item(Integer itemId, String name, int price, String provider, List<Item> recommendedItems, int quantity) {
         super();
         this.itemId = itemId;
         this.name = name;
@@ -32,11 +40,11 @@ public class Item {
         this.price=price;
     }
 
-    public String getItemId() {
+    public Integer getItemId() {
         return itemId;
     }
 
-    public void setItemId(String itemId) {
+    public void setItemId(Integer itemId) {
         this.itemId = itemId;
     }
 

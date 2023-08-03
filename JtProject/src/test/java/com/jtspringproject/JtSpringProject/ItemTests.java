@@ -14,7 +14,7 @@ public class ItemTests {
 
     @BeforeEach
     void setUp() {
-        item = new Item("1", "1", 3, "4", null, 1);
+        item = new Item(1, "1", 3, "4", null, 1);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class ItemTests {
 
     @Test
     void testGetItemId() {
-        assertEquals("1", item.getItemId());
+        assertEquals(1, item.getItemId());
     }
 
     @Test
@@ -55,8 +55,8 @@ public class ItemTests {
 
     @Test
     void testSetItemId() {
-        item.setItemId("2");
-        assertEquals("2", item.getItemId());
+        item.setItemId(2);
+        assertEquals(2, item.getItemId());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class ItemTests {
     @Test
     void testSetRecommendedItems() {
         List<Item> recommendedList = new ArrayList<>();
-        recommendedList.add(new Item("1", "1", 3, "4", null, 1));
+        recommendedList.add(new Item(2, "1", 3, "4", null, 1));
         item.setRecommendedItems(recommendedList);
         assertEquals(recommendedList, item.getRecommendedItems());
     }

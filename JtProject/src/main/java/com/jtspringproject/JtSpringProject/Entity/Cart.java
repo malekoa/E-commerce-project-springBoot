@@ -1,28 +1,33 @@
 package com.jtspringproject.JtSpringProject.Entity;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "Cart")
 public class Cart {
+    @Id
+    @GeneratedValue
+    private Integer cartId;
 
-    private String cartId;
-
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Item> containedItems = new ArrayList<>();
     public Cart() {
         super();
     }
 
-    public Cart(String cartId, List<Item> containedItems) {
+    public Cart(Integer cartId, List<Item> containedItems) {
         super();
         this.cartId = cartId;
         this.containedItems = containedItems;
     }
 
-    public String getCartId() {
+    public Integer getCartId() {
         return cartId;
     }
 
-    public void setCartId(String cartId) {
+    public void setCartId(Integer cartId) {
         this.cartId = cartId;
     }
 
