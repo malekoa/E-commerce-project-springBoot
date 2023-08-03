@@ -16,4 +16,12 @@ public class Guest{
         this.type = "Guest";
         cart = new Cart();
     }
+
+    @Override
+    public String toString() {
+        return "Guest{" +
+                "id=" + id +
+                ", type=" + type +
+                '}';
+    }
 }
