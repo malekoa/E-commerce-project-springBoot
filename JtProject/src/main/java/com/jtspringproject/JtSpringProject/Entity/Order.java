@@ -11,13 +11,13 @@ public class Order {
 
     private String totalCost;
 
-    private Date orderDate;
+    private String orderDate;
 
     public Order() {
         super();
     }
 
-    public Order(String orderId, String cartId, String userId, String totalCost, Date orderDate) {
+    public Order(String orderId, String cartId, String userId, String totalCost, String orderDate) {
         super();
         this.orderId = orderId;
         this.cartId = cartId;
@@ -58,12 +58,17 @@ public class Order {
         this.totalCost=totalCost;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate=orderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{orderId='"+orderId+"', cartId='"+cartId+"', userId='"+userId+"', totalCost='"+totalCost+"', orderDate="+orderDate+"}";
     }
 
 

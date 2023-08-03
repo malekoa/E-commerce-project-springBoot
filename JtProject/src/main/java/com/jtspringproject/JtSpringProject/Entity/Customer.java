@@ -49,6 +49,7 @@ public class Customer extends User{
         return name;
     }
 
+
     public String getAddress() {
         return address;
     }
@@ -57,6 +58,9 @@ public class Customer extends User{
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+    // Mutator Methods
 
     public void setCouponAccumulator(double couponAccumulator) {
         this.couponAccumulator = couponAccumulator;
@@ -76,5 +80,19 @@ public class Customer extends User{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return "Customer{" +
+                "id=" + super.getId() +
+                ", username='" + super.getUsername() + '\'' +
+                ", password='" + super.getPassword() + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", cartID='" + cartID + '\'' +
+                ", numCoupons=" + numCoupons +
+                ", couponAccumulator=" + couponAccumulator +
+                '}';
     }
 }
