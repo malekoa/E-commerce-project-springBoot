@@ -25,8 +25,8 @@ public class CartTest {
         cart = new Cart();
         Product product1 = new Product(1, "Test Product 1", 10, 5);
         Product product2 = new Product(2, "Test Product 2", 20, 3);
-        item1 = new Item(1, product1);
-        item2 = new Item(2, product2);
+        item1 = new Item(1, product1, null);
+        item2 = new Item(2, product2, null);
     }
 
     @Test

@@ -16,7 +16,7 @@ public class ItemTest {
     @BeforeEach
     public void setUp() {
         Product product = new Product(1, "Test Product", 10, 5);
-        item = new Item(1, product);
+        item = new Item(1, product, null);
     }
 
     @Test
