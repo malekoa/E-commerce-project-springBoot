@@ -1,4 +1,4 @@
-package com.jtspringproject.JtSpringProject.Tests;
+package com.jtspringproject.JtSpringProject;
 
 import com.jtspringproject.JtSpringProject.Entity.Guest;
 import com.jtspringproject.JtSpringProject.Entity.Item;
@@ -37,6 +37,8 @@ public class CustomerGuestIntegrationTest {
         assertNotNull(transitionedCustomer);
 
         // Assert that the cart of the transitioned customer has the same items as the guest
+        // query for cart based on cart id
+
         assertEquals(guest.getCart().getContainedItems(), transitionedCustomer.getCart().getContainedItems());
     }
 }
