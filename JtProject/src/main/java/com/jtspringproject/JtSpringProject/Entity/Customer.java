@@ -11,6 +11,7 @@ public class Customer extends User{
     private String cartID;
     private int numCoupons;
     private double couponAccumulator;
+    private Cart cart;  // Added Cart attribute
     private String address;
 
     // Constructors
@@ -80,6 +81,10 @@ public class Customer extends User{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCart(Cart cart) {  // Added setCart method
+        this.cart = cart;
     }
 
     @Override

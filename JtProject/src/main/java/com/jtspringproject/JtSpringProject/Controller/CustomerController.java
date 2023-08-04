@@ -25,12 +25,38 @@ public class CustomerController{
         return service.getCartById(customerID);
     }
 
-//    @PostMapping("/addToCart")
-//    public String addToCart(@RequestParam("customerId") int customerID,
-//                            @RequestParam("ItemID") int itemID,
-//                            @RequestParam("quantity") int quantity){
-//        return service.addToCart(customerID, itemID, quantity);
-//    }
+
+    @PostMapping("/addToCart")
+    public String addToCart(@RequestParam("customerId") int customerID,
+                            @RequestParam("ItemID") int itemID,
+                            @RequestParam("quantity") int quantity){
+        return service.addToCart(customerID, itemID, quantity);
+    }
+
+    @PostMapping("/applyCoupon")
+    public String applyCoupon(@RequestParam("customerId") int customerID,
+                            @RequestParam("cartId") int cartId){
+        return service.applyCoupon(customerID, cartId);
+    }
+
+    @PostMapping("/removeCoupon")
+    public String removeCoupon(@RequestParam("customerId") int customerID,
+                            @RequestParam("cartId") int cartId){
+        return service.removeCoupon(customerID, cartId);
+    }
+
+    @PostMapping("/checkout")
+    public String checkout(@RequestParam("customerId") int customerID,
+                            @RequestParam("cartId") int cartId){
+        return service.checkout(customerID, cartId);
+    }
+
+    @PostMapping("/confirmOrder")
+    public String confirmOrder(@RequestParam("customerId") int customerID,
+                            @RequestParam("cartId") int cartId){
+        return service.confirmOrder(customerID, cartId);
+    }
+
 
     @PostMapping("/register")
     public String newCustomerRegister(@RequestParam("username") String username,@RequestParam("password") String password,

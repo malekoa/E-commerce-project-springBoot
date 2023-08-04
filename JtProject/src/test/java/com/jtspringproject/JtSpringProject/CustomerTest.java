@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CustomerTests {
+public class CustomerTest {
 
     User customer;
 
     @BeforeEach
     void setUp() {
-        customer = new Customer(1, "1", "1", "John Doe", "johndoe@email.com", "1", 0, 0);
+        customer = new Customer(1, "1", "1", "John Doe", "johndoe@email.com", "1", 0, 0, "111 test avenue");
     }
 
     @Test
@@ -27,6 +27,7 @@ public class CustomerTests {
         assertEquals("1", ((Customer) customer).getCartID());
         assertEquals(0, ((Customer) customer).getNumCoupons());
         assertEquals(0, ((Customer) customer).getCouponAccumulator());
+        assertEquals("111 test avenue", ((Customer) customer).getAddress());
     }
 
     @Test
