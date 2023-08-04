@@ -185,4 +185,8 @@ public class Customer extends User{
                 ", couponAccumulator=" + couponAccumulator +
                 '}';
     }
+
+    public String getCart() {
+        return cartID;
+    }
 }

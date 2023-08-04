@@ -10,8 +10,15 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserRepository extends JpaRepository<User, Integer> {
     // Default methods are save(), findByID(), findAll(), deleteById()
 
-    @Query(value = "SELECT * FROM User WHERE User.username = ?1", nativeQuery = true)// ?1 corresponds to first parameter passed in the function
+    /**
+     * Finds a user by their username.
+     *
+     * @param username The username of the user to find.
+     * @return The User entity matching the provided username, or null if not found.
+     */
+    @Query(value = "SELECT * FROM User WHERE User.username = ?1", nativeQuery = true)
     User findByUsername(String username);
+
 
 
 }
