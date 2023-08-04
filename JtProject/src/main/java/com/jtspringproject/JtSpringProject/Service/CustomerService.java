@@ -20,6 +20,26 @@ public class CustomerService {
     public Cart getCartById(Integer id){
         return repository.getCartById(id);
     }
+
+    public String addToCart(int customerID, int itemID, int quantity) {
+        return "/cart";
+    }
+
+    public String applyCoupon(int customerID, int cartId) {
+        return "/cart";
+    }
+
+    public String removeCoupon(int customerID, int cartId) {
+        return "/cart";
+    }
+
+    public String checkout(int customerID, int cartId) {
+        return "/cart";
+    }
+
+    public String confirmOrder(int customerID, int cartId) {
+        return "/cart";
+    }
 //
 //    public String addToCart(int customerID, int itemID, int quantity) {
 //        return repository.addToCart(customerID, itemID, quantity);

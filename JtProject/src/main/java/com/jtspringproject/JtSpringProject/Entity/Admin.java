@@ -6,8 +6,7 @@ import javax.persistence.*;
 @Table(name = "Admin")
 public class Admin extends User{
 
-    Admin(){
-        super();
-        this.type = "Admin";
+    public Admin() {
+        this.setType("Admin");
     }
 }

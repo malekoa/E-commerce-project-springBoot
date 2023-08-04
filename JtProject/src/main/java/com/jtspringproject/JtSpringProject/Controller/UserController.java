@@ -1,6 +1,7 @@
 package com.jtspringproject.JtSpringProject.Controller;
 
 import com.jtspringproject.JtSpringProject.Entity.Customer;
+import com.jtspringproject.JtSpringProject.Entity.Guest;
 import com.jtspringproject.JtSpringProject.Entity.User;
 import com.jtspringproject.JtSpringProject.Service.UserService;
 import org.springframework.stereotype.Controller;
